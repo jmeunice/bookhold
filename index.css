@@ -1,0 +1,37 @@
+
+    body {
+      background-size: 50px 50px;
+      background-color: #0ae;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+      background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+    -pie-background: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent) 0 0 / 50px #0ae;
+    behavior: url(/pie/PIE.htc);
+
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
+rel="stylesheet">
+
+
+.black-header{
+  color: black;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+  }
+
+}
+h1 {
+  font-family: 'Indie Flower';
+}
+
+h2 {
+  font-family: 'Indie Flower';
+}
+
+.my-button {
+  font-size: 1cm
+}

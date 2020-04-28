@@ -1,33 +1,42 @@
 <html>
-
 <head>
-  <link rel="stylesheet" href="index.css">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet"> -->
     <title>Book Hold</title>
 </head>
-<script src="./index.js"></script>
+<!-- <script src="index.js"></script> -->
 <body>
-
-  <div class="Container">
-  <h1 style="text-align:center"class="black-header"> Hold a book</h1>
-  <img src="book.jpg" class="center" height = "300" alt= "A picture of a book"/>
-
-  </div>
-
-
-
-
-  <div class="Container">
-  <h2 style="text-align:center"class="black-header"> Place a Hold on a book</h2>
-  <ul>
-    <li> If you want a book that is not in the library, you can place a hold on it.
-    <li> Make sure to tell me your name, the book you want, and your teacher's name.
-  </ul>
-  </div>
-
-
-
+    <div class="Container">
+        <h1 style="text-align:center" class="black-header"> Hold a book</h1>
+        <img src="<a data-flickr-embed=" true"
+            href="https://www.flickr.com/photos/robert_saucier/47628509912/in/photolist-mrq7Ui-9cjC3d-P224cW-HpAmzJ-HCvFgk-jw9yM9-oYi4ud-jw9vAu-23kGCKa-2fyLyDo-28VJU2h-27gcJbz-LrtXni-GhxJ4a-ojdkMJ-JFUHsd-JpKS3Z-21bHLus-rSu2Qn-GhUJ2p-HcJM4g-oNgMnN-dbEoK1-dmQgca-cXbp7S-gARxvP-24pkkej-9A2h47-a11VFj-9JLYdU-9vz91a-9fR9r2-a9R8va-29juwvC-21YFi2C-cqNTkA-qUyJBd-D7pVWA-cvgiZA-cnZF9Q-a9TVmy-DtZcL4-bo15Tn-q6V84P-9xsmQZ-pKMAW9-jg1WeR-29PjRGd-f1wXyC-FgjQam"><img
+            src="https://live.staticflickr.com/65535/47628509912_d0c493a0fc_3k.jpg" class="center" width="800"
+            height="350" alt="Library"></a>
+        <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+    </div>
+    <div class="Container">
+        <h2 style="text-align:center" class="black-header"> Place a Hold on a book</h2>
+        <ul>
+            <li> If you want a book that is not in the library, you can place a hold on it.
+            <li> Make sure to tell me your name, the book you want, and your teacher's name.
+        </ul>
+    </div>
+    <input class="username" type="text"></input>
+    <input class="book" type="text"></input>
+    <input class="teacher" type="text"></input>
+    <button class="my-button">Click me to hold a book</button>
 </body>
-
-
+<script>
+    const myButton = document.querySelector('.my-button')
+    myButton.addEventListener('click', async function () {
+        const username = document.querySelector('.username').value
+        const book = document.querySelector('.book').value
+        const teacher = document.querySelector('.teacher').value
+        const fetchResult = await fetch(
+            `https://5lgh1zjb86.execute-api.us-east-2.amazonaws.com/default/adelphi-my-lambda-example?action=putUser&username=${username}&book=${book}&teacher=${teacher}`
+            )
+        const fetchParsed = await fetchResult.json()
+        console.log(fetchParsed)
+    })
+</script>
 </html>
